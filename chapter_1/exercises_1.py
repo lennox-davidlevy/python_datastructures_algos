@@ -92,3 +92,59 @@ list_by_two = [pow(2, x) for x in range(1, 9)]
 
 def home_made_choice(data, n):
     return data[random.randrange(0, n)]
+
+
+# C-1.13	Write a pseudo-code description of a function that reverses a list of n integers, so that the numbers are listed in the opposite order than they were before, and compare this method to an equivalent Python function for doing the same thing.
+
+# reverse_list(list):
+# check list for length return empty list
+# create empty list
+# loop through org list starting from last index
+# append to new list
+# return list
+
+
+def reverse_list(data, n):
+    if n == 0:
+        return False
+    temp_list = []
+    for i in range(n - 1, -1, -1):
+        temp_list.append(data[i])
+
+    return temp_list
+
+
+# C-1.14	Write a short Python function that takes a sequence of integer values and determines if there is a distinct pair of numbers in the sequence whose product is odd.
+
+
+def find_odd_pair(data):
+    if len(data) < 2:
+        return False
+    for i in range(0, len(data)):
+        for j in range(0, len(data)):
+            if i != j and data[i] != data[j]:
+                product = data[i] * data[j]
+                if product % 2 != 0:
+                    return True
+
+    return False
+
+
+# Write a Python function that takes a sequence of numbers and determines if all the numbers are different from each other (that is, they are distinct).
+
+
+def is_unique(data):
+    if len(data) == 0:
+        return False
+    elif len(data) == 1:
+        return True
+    num_set = set()
+    for num in data:
+        if num in num_set:
+            return False
+        else:
+            num_set.add(num)
+    return True
+
+
+# C-1.16	In our implementation of the scale function (page 25), the body of the loop executes the command data [j] *= factor. We have discussed that numeric types are immutable, and that use of the *= operator in this context causes the creation of a new instance (not the mutation of an existing instance). How is it still possible, then, that our implementation of scale changes the actual parameter sent by the caller?
