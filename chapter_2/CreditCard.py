@@ -47,6 +47,9 @@ class CreditCard:
     def _close_to_limit(self):
         return self.get_available_credit() <= 10
 
+    def __str__(self):
+        return f"{str(self.__class__)}: {str(self.__dict__)}"
+
 
 if __name__ == "__main__":
     wallet = []
@@ -67,3 +70,7 @@ if __name__ == "__main__":
         while wallet[c].get_balance() > 100:
             wallet[c].make_payment(100)
             print(f"New Balance = {wallet[c].get_balance()}")
+
+
+my_card = CreditCard("David Levy", "TD", "1234-5678-9012", 2500)
+print(my_card)
