@@ -70,7 +70,3 @@ if __name__ == "__main__":
         while wallet[c].get_balance() > 100:
             wallet[c].make_payment(100)
             print(f"New Balance = {wallet[c].get_balance()}")
-
-
-my_card = CreditCard("David Levy", "TD", "1234-5678-9012", 2500)
-print(my_card)
